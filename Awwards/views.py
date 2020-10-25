@@ -65,3 +65,23 @@ def edit_profile(request, username):
         'prof_form': pform,
     }
     return render(request, 'main/edit.html', params)
+
+    # Upload views
+    def upload(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+    else:
+        form = PostForm()
+
+    try:
+        posts = Project.objects.all()
+        print(posts)
+    except Project.DoesNotExist:
+        posts = None
+        return redirect('home')
+    return render(request, 'main/upload.html', {'posts': posts, 'form': form})
+

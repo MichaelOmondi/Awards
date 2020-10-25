@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 #Project models
+
 class Project(models.Model):
     title = models.CharField(max_length=100)
     details = models.TextField()
@@ -56,7 +57,8 @@ class Comment(models.Model):
         db_table = 'comments'
         ordering = ["-id"]
 
-#Profile model
+#Profile models
+
 class Profile(models.Model):
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True)
     prof_user = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
@@ -86,6 +88,7 @@ class Profile(models.Model):
         db_table = 'profiles'
 
 #Rate models
+
 class Rate(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     post = models.ForeignKey(Project, on_delete=models.PROTECT, related_name='likes', null=True)

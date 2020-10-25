@@ -10,5 +10,8 @@ class SignupForm(UserCreationForm):
         model = User
         fields = ["username", "password1", "password2"]
 
+class UpdateUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'email')
 
-        

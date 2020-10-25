@@ -95,5 +95,10 @@ def home(request):
     }
     return render(request, "main/index.html", image_params)
 
-    
+# Rate views
+def rate(request):
+    ratings = Rate.objects.all()
+    rate_params = {
+        'ratings': ratings
+    }    
 

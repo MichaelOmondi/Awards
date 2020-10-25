@@ -67,7 +67,7 @@ def edit_profile(request, username):
     return render(request, 'main/edit.html', params)
 
     # Upload views
-    def upload(request):
+def upload(request):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():

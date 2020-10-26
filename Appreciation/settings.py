@@ -22,7 +22,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configure Django App for Heroku.
-django_heroku.settings(locals())
+
 
 import os
 import django_heroku
@@ -53,6 +53,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'decouple'
     'pyuploadcare.dj',
     'crispy_forms',
     'Awwards.apps.AwwardsConfig',
@@ -182,4 +183,4 @@ STATICFILES_DIRS = (
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
+django_heroku.settings(locals())

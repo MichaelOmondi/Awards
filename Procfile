@@ -1,0 +1,1 @@
+web: gunicorn Appreciation.wsgi --log-file -
